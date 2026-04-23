@@ -79,3 +79,17 @@ bool search(int nim, Node *&previous, Node *current)
     }
     return (current != NULL);
 }
+
+bool delNode(int nim)
+{
+    Node *current, *previous;
+
+    if (!search(nim, previous, current))
+        return false;
+    
+    if (current == START)
+        START = START->next;
+    
+    delete current;
+    return true;
+}
